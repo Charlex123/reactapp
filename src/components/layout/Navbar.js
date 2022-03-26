@@ -29,43 +29,39 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            IMG
-            <i class='fab fa-typo3' />
+            ReadersClub
+            <i class='fas fa-book-reader' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item text-white text-decoration-none'>
-              <Link to='/' className='nav-links text-white text-decoration-none' onClick={closeMobileMenu}>
+            <li className='nav-item text-decoration-none'>
+              <Link to='/' className='nav-links text-decoration-none' onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
-            <li className='nav-item text-white text-decoration-none'>
+            <li className='nav-item text-decoration-none'>
               <Link
                 to="/gallery/add"
-                className='nav-links text-white text-decoration-none'
-                onClick={closeMobileMenu}
-              >
-                  Add Image
+                className='nav-links text-decoration-none'
+                onClick={closeMobileMenu}>
+                  Add Book
               </Link>
             </li>
-            <li className='nav-item text-white text-decoration-none'>
+            <li className='nav-item text-decoration-none'>
               <Link
                 to="/"
-                className='nav-links text-white text-decoration-none'
-                onClick={closeMobileMenu}
-              >
-                View Gallery
+                className='nav-links text-decoration-none'
+                onClick={closeMobileMenu}>
+                All Books
               </Link>
             </li>
-
             <li>
               <Link
                 to='/sign-up'
-                className='nav-links-mobile text-white text-decoration-none'
-                onClick={closeMobileMenu}
-              >
+                className='nav-links-mobile text-decoration-none'
+                onClick={closeMobileMenu}>
                 {/* Sign Up */}
               </Link>
             </li>

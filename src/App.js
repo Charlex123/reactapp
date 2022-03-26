@@ -6,8 +6,8 @@ import Navbar from "./components/layout/Navbar";
 import HeroSection from "./components/layout/HeroSection";
 import Footer from "./components/layout/Footer";
 import { BrowserRouter as Router, Route,Switch,withRouter} from "react-router-dom";
-import AddImage from "./components/gallery/AddImage";
-import EditImage from "./components/gallery/EditImage";
+import AddBook from "./components/gallery/AddBook";
+import BorrowBook from "./components/gallery/BorrowBook";
 
 function App(props) {
   return (
@@ -17,8 +17,8 @@ function App(props) {
         <HeroSection />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/gallery/add" component={AddImage} />
-          <Route exact path="/gallery/edit/:id" component={EditImage} />
+          <Route exact path="/gallery/add" component={AddBook} />
+          <Route exact path="/gallery/edit/:id" component={BorrowBook} />
         </Switch>
         <Footer />
       </div>

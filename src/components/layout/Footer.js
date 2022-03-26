@@ -7,7 +7,7 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          Join the Adventurous Gallery And Graphics World
+          Join Our Books ReadersClub
         </p>
         <p className='footer-subscription-text'>
           You can unsubscribe at any time.
@@ -50,24 +50,17 @@ function Footer() {
             <Link to='/'>Agency</Link>
             <Link to='/'>Influencer</Link>
           </div>
-          <div class='footer-link-items'>
-            <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
-          </div>
         </div>
       </div>
       <section class='social-media'>
         <div class='social-media-wrap'>
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
-              IMG
-              <i class='fab fa-typo3' />
+              ReadersClub
+              <i class='fas fa-book-reader' />
             </Link>
           </div>
-          <small class='website-rights'>IMG © 2020</small>
+          <small class='website-rights'>ReadersClub © 2022</small>
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'

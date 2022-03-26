@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
-const EditImage = () => {
+const BorrowBook = () => {
   
   let history = useHistory(); //The useHistory hook gives you access to the history instance that you may use to navigate.
   const { id } = useParams();  //The useParams() hook helps us to access the URL parameters from a current route. 
   const [user, setUser] = useState({
-    Image_name: "",
-    Image_slug: "",
-    Image_description: ""
+    Book_name: "",
+    Book_title: "",
+    Book_price: "",
+    Book_description: ""
   });
 
-  const { Image_name, Image_slug, Image_description } = user;
+  const { Book_name, Book_title, Book_price, Book_description } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -22,21 +23,24 @@ const EditImage = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post(`https://mi-linux.wlv.ac.uk/~2048099/codei4/update-image/update/${id}`, user);
-    // history.push("/");
-    alert('success');
+    await axios.post(`https://localhost/codei4/update-book/update/${id}`, user).then(response => {
+      // return response.json();
+      alert('Book successfully borrowed');
+    // // history.push("/");
     window.location.reload(true);
+    console.log(response);
+  })
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`https://mi-linux.wlv.ac.uk/~2048099/codei4/get_image/${id}`);
+    const result = await axios.get(`http://localhost/codei4/get_book/${id}`);
     setUser(result.data);
   };
   return (
     <div className="container mt-5 mb-5">
      <div className="row"> 
       <div className="col-sm-5 col-offset-3 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit Gallery</h2>
+        <h2 className="text-center mb-4">Borrow Book</h2>
         <form onSubmit={e => onSubmit(e)}>
         <div className="form-group">
             <label htmlFor=""> Id</label>
@@ -54,35 +58,56 @@ const EditImage = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter image Name"
-              name="image_name"
-              value={Image_name}
+              placeholder="Enter book Name"
+              name="book_name"
+              value={Book_name}
               onChange={e => onInputChange(e)}
             />
           </div>
           <div className="form-group">
-            <label htmlFor=""> Slug</label>
+            <label htmlFor=""> Price</label>
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter image Slug"
-              name="image_slug"
-              value={Image_slug}
+              placeholder="Enter book Price"
+              name="book_price"
+              value={Book_price}
               onChange={e => onInputChange(e)}
             />
           </div>
           <div className="form-group">
-          <label htmlFor="">Image Description</label>
+            <label htmlFor=""> Select Duration</label>
+            <select className="form-control form-control-lg" name="book_duration" >
+              <option value="">Select Duration</option>
+              <option value="1">1 day</option>
+              <option value="2">2 days</option>
+              <option value="7">7 days</option>
+              <option value="14">14 days</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor=""> Price</label>
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter image Description"
-              name="image_description"
-              value={Image_description}
+              placeholder="Enter book Title"
+              name="book_price"
+              value={Book_price}
               onChange={e => onInputChange(e)}
             />
           </div>
-          <button className="btn btn-success btn-block">Edit Image</button>
+          <div className="form-group">
+          <label htmlFor="">Book Description</label>
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter book Description"
+              name="book_description"
+              value={Book_description}
+              onChange={e => onInputChange(e)}
+            />
+          </div>
+          <button className="btn btn-block" style={{backgroundColor: 'orange',fontWeight: 'bold',fontFamily:'Nunito'}}>Borrow Book</button>
         </form>
        </div>
       </div> 
@@ -90,4 +115,4 @@ const EditImage = () => {
   );
 };
 
-export default EditImage;
+export default BorrowBook;
